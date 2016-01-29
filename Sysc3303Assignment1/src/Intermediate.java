@@ -1,25 +1,23 @@
 import java.io.IOException;
 import java.net.*;
-//import java.util.Arrays;
 
 public class Intermediate extends Host {
 	private DatagramPacket sendPacketClient, receivePacketClient,
 		sendPacketServer, receivePacketServer;
 	private DatagramSocket receive, sendReceive, send;
-	private final static int serverPort = 1026;
+	private final static int serverPort = 69;
 	public Intermediate() throws SocketException {
-			receive = new DatagramSocket(1025);
+			receive = new DatagramSocket(intermediatePort);
 			sendReceive = new DatagramSocket();
 		}
 
 	public void intermediate() throws IOException, InterruptedException
 	{
-		while(true)
-		{
-		//waiting for client
-      byte data[] = new byte[100];
-      receivePacketClient = new DatagramPacket(data, data.length);
-      System.out.println("Intermediate host: Waiting for Packet.\n");
+		while(true){
+			//waiting for client
+			byte data[] = new byte[100];
+			receivePacketClient = new DatagramPacket(data, data.length);
+			System.out.println("Intermediate host: Waiting for Packet.\n");
 
       try {
          System.out.println("Waiting..."); // so we know we're waiting
@@ -31,7 +29,7 @@ public class Intermediate extends Host {
          System.exit(1);
       }
       
-      //Request received from client
+      //print request received from client
       printData(receivePacketClient,"Client","Intermediate");
       int clientPort = receivePacketClient.getPort();
       InetAddress address = receivePacketClient.getAddress();
@@ -53,6 +51,7 @@ public class Intermediate extends Host {
      receivePacketServer = new DatagramPacket(data, data.length);
      System.out.println("Intermediate Host: Waiting for Packet.\n");
      
+     //receive packet from server
      try {        
         System.out.println("Waiting..."); // so we know we're waiting
         sendReceive.receive(receivePacketServer);
@@ -75,12 +74,13 @@ public class Intermediate extends Host {
      printData(sendPacketClient,"Client","Intermediate");
      
      send = new DatagramSocket();
-     //send out request
+     //send server's response to client
      send.send(sendPacketClient);
      
-     //print out above info 
+     //print out above information
      System.out.println("Server: packet sent");
      
+     //close the appropriate socket
       send.close();
       }
 	}

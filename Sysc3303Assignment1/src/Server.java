@@ -1,6 +1,3 @@
-
-//Edited Professor Lynn Marshall's example filesimport java.io.*;
-
 import java.io.IOException;
 import java.net.*;
 import java.util.Arrays;
@@ -9,15 +6,18 @@ public class Server extends Host {
    private DatagramPacket sendPacket, receivePacket;
    private DatagramSocket send, receive;
 
-   public Server() throws SocketException {	receive = new DatagramSocket(1026);   }
+   public Server() throws SocketException {	receive = new DatagramSocket(69);   }
 
    public void receiveAndEcho() throws Exception
    {
    	while(true){
+   		//create packet to receive information
       byte data[] = new byte[100];
       receivePacket = new DatagramPacket(data, data.length);
+      //waiting for request
       System.out.println("Server: Waiting for Packet.\n");
 
+      //receive packet from intermediate host
       try {        
          System.out.println("Waiting..."); // so we know we're waiting
          receive.receive(receivePacket);
@@ -35,6 +35,7 @@ public class Server extends Host {
       //check if array is of correct format
       if(validate(rawArray) == false)	throw new Exception();
       
+      //print info
       printData(receivePacket, "Intermediate","Server");
       //Thread.sleep(5000);
       
@@ -53,14 +54,19 @@ public class Server extends Host {
       	rawArray = new byte[] {zero,four,zero,zero};
       }
       
+      //create packet to use to respond to client
       sendPacket = new DatagramPacket(rawArray, rawArray.length,
                                receivePacket.getAddress(), receivePacket.getPort());
       
+      //print above information
       printData(sendPacket, "Intermediate","Server");
       
+      //create socket to use to send packet to client
       send = new DatagramSocket();
+      //send packet to client
       send.send(sendPacket);
       System.out.println("Server: packet sent\n");
+      //close socket
       send.close();
       }
    	}

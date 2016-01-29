@@ -1,0 +1,161 @@
+bplist00Ñ_WebMainResourceÕ	
+_WebResourceTextEncodingName_WebResourceFrameName^WebResourceURL_WebResourceData_WebResourceMIMETypeUUTF-8P_Ghttp://sce.carleton.ca/courses/sysc-3303/w16/CourseMaterials/asst1.htmlO±<!-- saved from url=(0022)http://internet.e-mail --><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>SYSC 3303 Winter 2016 Assignment 1</title></head>
+<body>
+<div style="text-align: center; font-weight: bold;">Carleton
+University<br>
+Department of Systems and Computer Engineering<br>
+SYSC 3303 - Real-Time Concurrent Systems - Winter 2016<br>
+<br>
+Assignment 1<br>
+</div>
+<br>
+
+
+
+<h4>Background</h4>
+
+<p>The goal of this assignment is to build a very basic 3 part system consisting of a client,
+an intermediate host, and a server.
+The client sends requests to the intermediate host, which sends them on to the server.  The server sends
+responses to the intermediate host, which sends them on to the client.
+From the client's point of view, the intermediate host appears to be the server.
+From the server's point of view, the intermediate host appears to be the client.
+In this assignment, the intermediate host will not change the packets, it will just send them on.
+The intermediate host could be updated to change packets and thus become an error simulator for the system.
+</p><p>
+Note that this assignment requires knowledge of the material presented on UDP/IP and Javaâ€™s DatagramPacket and DatagramSocket classes, as well as conversion between Strings and arrays of bytes.  It includes some very basic knowledge of UML Class and Collaboration Diagrams and basic UCMs, but does not require any knowledge of Java threads or TFTP.
+
+</p><h4>Specification</h4>
+
+<p>The client algorithm is:
+</p><ul>
+<li>	
+the client creates a DatagramSocket to use to both send and receive
+</li><li>
+repeat the following 11 times:
+<ul>
+<li>
+the client creates a DatagramPacket
+<ul>
+<li>the packet is either a "read request" or a "write request"  (alternate between read and write requests, five each) with #11 an invalid request
+<ul>
+<li> read request format:
+<ul>
+<li> first two bytes are 0 and 1 (these are binary, <b>not</b> text)
+</li><li> then there's a filename converted from a string to bytes (e.g. <i>test.txt</i>)
+</li><li> then a 0 byte
+</li><li> then a mode (<i>netascii</i> or <i>octet</i>, any mix of cases, e.g. <i>ocTEt</i>) converted from a string to bytes
+</li><li> finally another 0 byte (and nothing else after that!)
+</li></ul>
+</li></ul>
+<ul>
+<li> write request format:
+<ul>
+<li> just like a read request, except it starts with 0 2 instead of 0 1
+</li></ul>
+</li></ul>
+</li></ul>
+</li><li> the client prints out the information it has put in the packet (print the request both as a String and as bytes)
+</li><li> the client sends the packet to a well-known port: 68 on the intermediate host
+</li><li>
+the client waits on its DatagramSocket
+</li><li>
+when it receives a DatagramPacket from the intermediate host, it prints out the information received, including the byte array 
+</li></ul>
+</li></ul>
+
+<p>The intermediate host algorithm is:
+</p><ul>
+<li>	
+the host creates a DatagramSocket to use to receive (port 68)
+</li><li> the host creates a DatagramSocket to use to send and receive
+</li><li>repeat the following "forever":
+<ul>
+<li>
+the host waits to receive a request
+</li><li> the host prints out the information it has received (print the request both as a String and as bytes)
+</li><li> the host forms a packet to send containing exactly what it received
+</li><li> the host prints out this information 
+</li><li> the host sends this packet on its send/receive socket to port 69
+</li><li> it waits to receive a response
+</li><li> it prints out the information received
+</li><li>it forms a packet to send back to the host sending the request
+</li><li> it creates a DatagramSocket to use to send this request
+</li><li> it prints out the information being sent
+</li><li> it sends the request
+
+</li></ul>
+</li></ul>
+
+<p>The server algorithm is:
+</p><ul>
+<li>	
+the server creates a DatagramSocket to use to receive (port 69)
+</li><li>
+repeat the following "forever":
+<ul>
+<li>
+the server waits to receive a request
+<ul>
+<li>the packet should be either a "read request" or a "write request" (see details above)
+</li><li>the server should parse the packet to confirm that the format is valid: for purposes of this assignment that means that the packet contains:
+<ul>
+<li>  0 1 or 0 2 
+</li><li> some text
+</li><li> 0
+</li><li> some text
+</li><li> 0
+</li><li> nothing else after that!
+</li></ul></li></ul>
+</li><li> the server prints out the information it has received (print the request both as a String and as bytes)
+</li><li> if the packet is invalid (as per the above), the server throws an exception and quits
+</li><li> if the packet is a valid read request it sends back 0 3 0 1 (exactly four bytes)
+</li><li> if the packet is a valid write request it sends back 0 4 0 0 (exactly four bytes)
+</li><li>
+the server prints out the response packet information
+</li><li>it then creates a DatagramSocket to use just for this response
+</li><li> and sends the packet via the new socket to the port it received the request from
+</li><li> and closes the socket it just created
+</li></ul>
+</li></ul>
+
+
+<h4>Hints</h4>
+
+<p>
+</p><ul>
+<li>The Echo Client-Server example discussed in class and posted on the web site will be useful.  <p>
+
+</p></li><li>The APIs for the DatagramSocket, DatagramPacket, and String classes, as well as information on Java arrays which are available through the <a href="http://www.oracle.com/technetwork/java/api-141528.html">http://www.oracle.com/technetwork/java/api-141528.html</a> help facility, may also prove useful.<p>
+
+</p></li><li>For this assignment and for the project you need to be able to run multiple main programs (projects) concurrently.  Ensure that Eclipse is configured correctly for running multiple programs.  See the course reference material for more information.<p>
+
+</p></li><li>Don't get mixed up between text and bytes.  For example, the requests start with a 0 byte, <b>not</b> the character 0 converted to a byte.<p>
+
+</p></li><li>Ensure that you follow the specification above.  Your datagram sockets (the total number, ports used, send and/or receive) and packet formats must be <u>exactly</u> as described.  In the project you will be following a similar specification.  Your implementation is considered to be <b>wrong</b> if you do not follow the specification!<p>
+
+</p></li><li>
+The TAs will mark your assignments in the lab environment.  It is your responsibility to ensure that your code works in that environment, and that any software required for viewing any text/diagrams is also present in the lab.  You must use the Eclipse Java IDE. 
+</li></ul>
+
+<h4>Work Products</h4>
+
+<p>
+</p><ol>
+<li>A â€œREADME.txtâ€ file explaining the names of your files,  set up instructions, etc.<p>
+</p></li><li>One UCM showing the client, intermediate host, and server.<p>
+</p></li><li>Three UML Collaboration diagrams, one each for the client, intermediate host, and server.<p>
+</p></li><li> One or more UML Class diagrams showing your system.<p>
+</p></li><li>The source code for all three parts of the system, as well as any files required to run these files in Eclipse.  (You may submit test classes if you wrote them, but be sure to explain the files you have submitted â€“ see #1 above.)  Your code should demonstrate good programming style, and be well documented, etc. <!-- For examples of "industrial quality" Java code, have a look at Sun's Java coding conventions, which can be found on our Java resources Web site. (This site can be reached by a link from the SYSC 3303 Web site.) -->
+</li></ol>
+For parts 2 and 3, hand-drawn scanned diagrams are acceptable, as long as they are neatly drawn and your handwriting is legible, and the software required to view them is present in the lab.
+
+
+<h4>Submitting Assignments</h4>
+Assignments are to be submitted electronically using the assignment â€œsubmitâ€ program.
+Emailed submissions will not be accepted. See the course outline for the procedure to follow if illness causes you to miss the deadline.
+<p>
+Due: Friday, January 22nd at midnight SHARP!
+
+</p></body></html>Ytext/html    ( F ] l ~ ” š › å š                            ¤

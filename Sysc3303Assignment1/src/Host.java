@@ -2,7 +2,7 @@ import java.net.DatagramPacket;
 import java.util.Arrays;
 
 public abstract class Host {
-	protected final static int intermediatePort = 1025;
+	protected final static int intermediatePort = 68;
 	protected final static byte zero = 0;
 	protected final static byte read = 1;
 	protected final static byte write = 2;
