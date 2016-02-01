@@ -1,21 +1,15 @@
-
 public class ThreadManager {
-
-	public ThreadManager() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public static void main(String[] args)
 	{
-		Thread chefButter = new Thread(new Chef());
-		Thread chefJam = new Thread(new Chef());
-		Thread chefBread = new Thread(new Chef());
-		Thread agent = new Thread(new Agent());
+		Table table = new Table();
+		Thread chefPeanutButter = new Thread(new Chef(table,"peanutbutter", "Lynn"));
+		Thread chefJam = new Thread(new Chef(table,"jam", "Craig"));
+		Thread chefBread = new Thread(new Chef(table,"bread", "Sysc"));
+		Thread agent = new Thread(new Agent(table,"007"));
 		
-		chefButter.start();
+		agent.start();
+		chefPeanutButter.start();
 		chefJam.start();
 		chefBread.start();
-		agent.start();
-		
-	}
+		}
 }
