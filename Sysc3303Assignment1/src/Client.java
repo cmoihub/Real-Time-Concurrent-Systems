@@ -28,14 +28,8 @@ public class Client extends Host{
    		format[index] = zero;
       	index++;
       	}
-   	if(i<=10 && i%2 == 1)	{
-   		format[index] = read;
-      	index++;
-      	}
-   	else	{
-      	format[index] = write;
-      	index++;
-      }
+   	format[index] = (i<=10 && i%2 == 1) ? read : write;
+   	index++;
    	
     //copy filename into array
     filename = "filename.txt";

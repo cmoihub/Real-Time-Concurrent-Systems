@@ -1,0 +1,293 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid2\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid3\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid4\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid5\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li3600\lin3600 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid102\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid202\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid203\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid204\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li2880\lin2880 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid401\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf0 \expnd0\expndtw0\kerning0
+Carleton University\
+Department of Systems and Computer Engineering\
+SYSC 3303 - Real-Time Concurrent Systems - Winter 2016\
+\
+Assignment 1\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 Background\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 The goal of this assignment is to build a very basic 3 part system consisting of a client, an intermediate host, and a server. The client sends requests to the intermediate host, which sends them on to the server. The server sends responses to the intermediate host, which sends them on to the client. From the client's point of view, the intermediate host appears to be the server. From the server's point of view, the intermediate host appears to be the client. In this assignment, the intermediate host will not change the packets, it will just send them on. The intermediate host could be updated to change packets and thus become an error simulator for the system.\
+Note that this assignment requires knowledge of the material presented on UDP/IP and Java\'92s DatagramPacket and DatagramSocket classes, as well as conversion between Strings and arrays of bytes. It includes some very basic knowledge of UML Class and Collaboration Diagrams and basic UCMs, but does not require any knowledge of Java threads or TFTP.\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 Specification\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 The client algorithm is:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+the client creates a DatagramSocket to use to both send and receive\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+repeat the following 11 times:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the client creates a DatagramPacket\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160\partightenfactor0
+\ls1\ilvl2\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+the packet is either a "read request" or a "write request" (alternate between read and write requests, five each) with #11 an invalid request\
+\pard\tx2380\tx2880\pardeftab720\li2880\fi-2880\partightenfactor0
+\ls1\ilvl3\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+read request format:\
+\pard\tx3100\tx3600\pardeftab720\li3600\fi-3600\partightenfactor0
+\ls1\ilvl4\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+first two bytes are 0 and 1 (these are binary, 
+\b not
+\b0  text)\
+\ls1\ilvl4\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+then there's a filename converted from a string to bytes (e.g. 
+\i test.txt
+\i0 )\
+\ls1\ilvl4\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+then a 0 byte\
+\ls1\ilvl4\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+then a mode (
+\i netascii
+\i0  or 
+\i octet
+\i0 , any mix of cases, e.g. 
+\i ocTEt
+\i0 ) converted from a string to bytes\
+\ls1\ilvl4\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+finally another 0 byte (and nothing else after that!)\
+\pard\tx2380\tx2880\pardeftab720\li2880\fi-2880\partightenfactor0
+\ls1\ilvl3\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+write request format:\
+\pard\tx3100\tx3600\pardeftab720\li3600\fi-3600\partightenfactor0
+\ls1\ilvl4\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+just like a read request, except it starts with 0 2 instead of 0 1\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the client prints out the information it has put in the packet (print the request both as a String and as bytes)\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the client sends the packet to a well-known port: 68 on the intermediate host\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the client waits on its DatagramSocket\
+\ls1\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+when it receives a DatagramPacket from the intermediate host, it prints out the information received, including the byte array\
+\pard\pardeftab720\partightenfactor0
+\cf0 The intermediate host algorithm is:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+the host creates a DatagramSocket to use to receive (port 68)\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+the host creates a DatagramSocket to use to send and receive\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+repeat the following "forever":\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls2\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the host waits to receive a request\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the host prints out the information it has received (print the request both as a String and as bytes)\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the host forms a packet to send containing exactly what it received\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the host prints out this information\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the host sends this packet on its send/receive socket to port 69\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it waits to receive a response\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it prints out the information received\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it forms a packet to send back to the host sending the request\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it creates a DatagramSocket to use to send this request\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it prints out the information being sent\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it sends the request\
+\pard\pardeftab720\partightenfactor0
+\cf0 The server algorithm is:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+the server creates a DatagramSocket to use to receive (port 69)\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+repeat the following "forever":\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls3\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the server waits to receive a request\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160\partightenfactor0
+\ls3\ilvl2\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+the packet should be either a "read request" or a "write request" (see details above)\
+\ls3\ilvl2\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+the server should parse the packet to confirm that the format is valid: for purposes of this assignment that means that the packet contains:\
+\pard\tx2380\tx2880\pardeftab720\li2880\fi-2880\partightenfactor0
+\ls3\ilvl3\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+0 1 or 0 2\
+\ls3\ilvl3\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+some text\
+\ls3\ilvl3\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+0\
+\ls3\ilvl3\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+some text\
+\ls3\ilvl3\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+0\
+\ls3\ilvl3\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+nothing else after that!\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls3\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the server prints out the information it has received (print the request both as a String and as bytes)\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+if the packet is invalid (as per the above), the server throws an exception and quits\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+if the packet is a valid read request it sends back 0 3 0 1 (exactly four bytes)\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+if the packet is a valid write request it sends back 0 4 0 0 (exactly four bytes)\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+the server prints out the response packet information\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+it then creates a DatagramSocket to use just for this response\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+and sends the packet via the new socket to the port it received the request from\
+\ls3\ilvl1\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+and closes the socket it just created\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 Hints\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+The Echo Client-Server example discussed in class and posted on the web site will be useful. \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+The APIs for the DatagramSocket, DatagramPacket, and String classes, as well as information on Java arrays which are available through the {\field{\*\fldinst{HYPERLINK "http://www.oracle.com/technetwork/java/api-141528.html"}}{\fldrslt \cf2 \ul \ulc2 http://www.oracle.com/technetwork/java/api-141528.html}} help facility, may also prove useful. \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+For this assignment and for the project you need to be able to run multiple main programs (projects) concurrently. Ensure that Eclipse is configured correctly for running multiple programs. See the course reference material for more information. \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Don't get mixed up between text and bytes. For example, the requests start with a 0 byte, 
+\b not
+\b0  the character 0 converted to a byte. \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Ensure that you follow the specification above. Your datagram sockets (the total number, ports used, send and/or receive) and packet formats must be \ul exactly\ulnone  as described. In the project you will be following a similar specification. Your implementation is considered to be 
+\b wrong
+\b0  if you do not follow the specification! \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+The TAs will mark your assignments in the lab environment. It is your responsibility to ensure that your code works in that environment, and that any software required for viewing any text/diagrams is also present in the lab. You must use the Eclipse Java IDE.\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 Work Products\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	1	}\expnd0\expndtw0\kerning0
+A \'93README.txt\'94 file explaining the names of your files, set up instructions, etc. \
+\ls5\ilvl0\kerning1\expnd0\expndtw0 {\listtext	2	}\expnd0\expndtw0\kerning0
+One UCM showing the client, intermediate host, and server. \
+\ls5\ilvl0\kerning1\expnd0\expndtw0 {\listtext	3	}\expnd0\expndtw0\kerning0
+Three UML Collaboration diagrams, one each for the client, intermediate host, and server. \
+\ls5\ilvl0\kerning1\expnd0\expndtw0 {\listtext	4	}\expnd0\expndtw0\kerning0
+One or more UML Class diagrams showing your system. \
+\ls5\ilvl0\kerning1\expnd0\expndtw0 {\listtext	5	}\expnd0\expndtw0\kerning0
+The source code for all three parts of the system, as well as any files required to run these files in Eclipse. (You may submit test classes if you wrote them, but be sure to explain the files you have submitted \'96 see #1 above.) Your code should demonstrate good programming style, and be well documented, etc. For examples of "industrial quality" Java code, have a look at Sun's Java coding conventions, which can be found on our Java resources Web site. (This site can be reached by a link from the SYSC 3303 Web site.)\
+\pard\pardeftab720\partightenfactor0
+\cf0 For parts 2 and 3, hand-drawn scanned diagrams are acceptable, as long as they are neatly drawn and your handwriting is legible, and the software required to view them is present in the lab.
+\b \
+Submitting Assignments\
+
+\b0 Assignments are to be submitted electronically using the assignment \'93submit\'94 program. Emailed submissions will not be accepted. See the course outline for the procedure to follow if illness causes you to miss the deadline.\
+Due: Friday, January 22nd at midnight SHARP!}

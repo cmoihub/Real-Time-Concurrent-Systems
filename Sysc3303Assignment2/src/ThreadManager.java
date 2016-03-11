@@ -8,8 +8,8 @@ public class ThreadManager {
 		Thread agent = new Thread(new Agent(table,"007"));
 		
 		agent.start();
-		chefPeanutButter.start();
 		chefJam.start();
+		chefPeanutButter.start();
 		chefBread.start();
 		}
 }
